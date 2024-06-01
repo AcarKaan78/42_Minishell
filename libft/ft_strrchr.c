@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amonem <amonem@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 00:06:39 by gotunc            #+#    #+#             */
+/*   Updated: 2023/11/22 00:59:51 by amonem           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t			i;
+	int				res;
+	unsigned char	*title;
+	unsigned char	d;
+
+	d = c;
+	title = (unsigned char *)s;
+	i = 0;
+	res = -1;
+	while (i != (ft_strlen((char *)title) + 1))
+	{
+		if (title[i] == d)
+			res = i;
+		i++;
+	}
+	if (res != -1)
+		return ((char *)(s + (res * sizeof(char))));
+	return (0);
+}
